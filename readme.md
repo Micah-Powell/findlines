@@ -50,8 +50,8 @@ The test builds the program and compares the program output for the example file
 
 ## Resources
 
-- fgets manual page and examples https://en.cppreference.com/w/c/io/fgets
-- malloc and free reference https://en.cppreference.com/w/c/memory/malloc
-- strstr reference https://en.cppreference.com/w/c/string/byte/strstr
-- strchr reference https://en.cppreference.com/w/c/string/byte/strchr
-- Notes on buffer management and reallocation strategies https://en.wikipedia.org/wiki/Buffer_overflow
+- [fgets](https://en.cppreference.com/w/c/io/fgets) manual page and examples
+- [malloc and free](https://en.cppreference.com/w/c/memory/malloc) reference
+- [strstr](https://en.cppreference.com/w/c/string/byte/strstr) reference
+- [strchr](https://en.cppreference.com/w/c/string/byte/strchr) reference
+- [buffer overflow](https://en.wikipedia.org/wiki/Buffer_overflow) notes on buffer management and reallocation strategies
