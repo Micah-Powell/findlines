@@ -3,13 +3,13 @@ Findlines
 
 A small C program that prints lines from standard input which contain a given search query. The program aims to behave like a minimal substring version of grep when reading from stdin
 
-Building and Testing
---------------------
+## Learning Outcomes
 
-The program can be built using `make`. Make will automatically build the binary and confirm that it performs correctly in a test searching a single file.
+After completing this lab learners will be able to
 
-Assignment
-----------
+1. Replace a static buffer with heap allocation and manage memory safely
+2. Read text input line by line using standard C I/O functions
+3. Describe trade offs in memory usage and thread safety
 
 This program currently allocates a single, static, global buffer for processing lines. This presents a number of limitations:
 
