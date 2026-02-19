@@ -11,14 +11,47 @@ After completing this lab learners will be able to
 2. Read text input line by line using standard C I/O functions
 3. Describe trade offs in memory usage and thread safety
 
-This program currently allocates a single, static, global buffer for processing lines. This presents a number of limitations:
+## Usage
 
-- The search function will fail to properly process lines containing more than 1000 characters.
-- The search function uses extra memory for files with only short lines.
-- The search function is not thread safe. The program could not be extended to search multiple files simultaneously using this implementation.
+Build the binary with make:
 
-You will modify the program to use a heap allocation with the following properties:
+```sh
+make
+```
 
-- An initial allocation of 100 bytes will be used.
-- If a line is encountered that exceeds this space, a new larger space should be allocated and used instead.
-- The lifetime of this heap space should not extend beyond the function invocation. All memory allocated by the function must be freed before the function returns.
+Pipe data to the program to search for text:
+
+```sh
+> cat belgic-confession.md | ./findlines Jesus
+We distinguish between these holy books and the apocryphal ones, which are the third and fourth books of Esdras; the books of Tobit, Judith, Wisdom, Jesus Sirach, Baruch; what was added to the Story of Esther; the Song of the Three Children in the Furnace; the Story of Susannah; the Story of Bell and the Dragon; the Prayer of Manasseh; and the two books of Maccabees.
+And in another place it says: "The grace of our Lord Jesus Christ, and the love of God, and the fellowship of the Holy Spirit be with you."
+...
+```
+
+The program prints each line that contains the substring provided as the single command line argument
+
+## Testing
+
+Run the included test using make test
+
+```
+make test
+```
+
+The test builds the program and compares the program output for the example file with the expected output file
+
+## Tasks
+
+1. Replace the global static buffer with a heap allocation that initially reserves 100 bytes
+2. Detect when a line does not fit the current allocation and reallocate a larger buffer to hold the full line
+3. Ensure every allocation is freed before the function returns so the function does not leak memory
+4. Preserve existing behavior that prints matching lines and otherwise exits normally
+5. Add comments and tests if necessary to demonstrate correctness
+
+## Resources
+
+- fgets manual page and examples https://en.cppreference.com/w/c/io/fgets
+- malloc and free reference https://en.cppreference.com/w/c/memory/malloc
+- strstr reference https://en.cppreference.com/w/c/string/byte/strstr
+- strchr reference https://en.cppreference.com/w/c/string/byte/strchr
+- Notes on buffer management and reallocation strategies https://en.wikipedia.org/wiki/Buffer_overflow
