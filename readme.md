@@ -1,7 +1,7 @@
 Findlines
 =========
 
-A program to return lines in a file matching a search query. The behavior should match `grep` when given input on `stdin` and a simple substring search.
+A small C program that prints lines from standard input which contain a given search query. The program aims to behave like a minimal substring version of grep when reading from stdin
 
 Building and Testing
 --------------------
